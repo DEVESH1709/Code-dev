@@ -10,7 +10,7 @@ export const saveExecution = mutation({
     output: v.optional(v.string()),
     error: v.optional(v.string()),
   },
-  handler: async (ctx, args) => {
+  handler: async (ctx,args) => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) throw new ConvexError("Not authenticated");
 

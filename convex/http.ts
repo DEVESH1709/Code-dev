@@ -16,13 +16,13 @@ http.route({
     if (!signature) {
       return new Response("Missing X-Signature header", { status: 400 });
     }
-
+  
     try {
       const payload = await ctx.runAction(internal.lemonSqueezy.verifyWebhook, {
         payload: payloadString,
         signature,
       });
-
+  
       if (payload.meta.event_name === "order_created") {
         const { data } = payload;
 
@@ -34,7 +34,7 @@ http.route({
         });
 
         if (success) {
-          // optionally do anything here
+          // do any thing 
         }
       }
 
